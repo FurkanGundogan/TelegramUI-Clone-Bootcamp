@@ -7,19 +7,16 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
-
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import UserProvider from './src/providers/UserProvider';
+import Login from './src/screens/Login';
 const App = () => {
-
   return (
-    <SafeAreaView>
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic">
-      </ScrollView>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <UserProvider>
+        <Login />
+      </UserProvider>
+    </SafeAreaProvider>
   );
 };
 
