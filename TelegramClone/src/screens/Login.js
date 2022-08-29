@@ -1,22 +1,19 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import React, {useContext} from 'react';
-
-import {SafeAreaView, ScrollView} from 'react-native';
 import {UserContext} from '../contexts/userContext';
 import LoginForm from '../components/LoginForm';
+import StackNav from '../navigations/StackNav';
 
 const Login = () => {
   const {user} = useContext(UserContext);
   return (
-    <View>
+    <>
       {user ? (
-        <View>
-          <Text>User Var </Text>
-        </View>
+        <StackNav/>
       ) : (
-        <LoginForm/>
+        <LoginForm />
       )}
-    </View>
+    </>
   );
 };
 

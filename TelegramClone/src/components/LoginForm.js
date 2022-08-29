@@ -1,7 +1,9 @@
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import { UserContext } from '../contexts/userContext';
 
 const LoginForm = () => {
+  const {user,setUser} = useContext(UserContext);
     const initialState={
         firstname:"",
         lastname:"",
@@ -16,7 +18,11 @@ const LoginForm = () => {
     }))
     console.log(userInfo)
   }
-  
+  const submitUser = () => {
+    setUser(userInfo)
+    console.log("user set completed:",userInfo)
+    console.log("user:",user);
+  }
   return (
     <View>
       <Text>LoginPage</Text>
@@ -24,7 +30,7 @@ const LoginForm = () => {
       <TextInput style={styles.textInput} onChangeText={(e)=>handleChange(e,"lastname")}/>
       <TextInput style={styles.textInput} onChangeText={(e)=>handleChange(e,"phone")}/>
       <TextInput style={styles.textInput} onChangeText={(e)=>handleChange(e,"username")}/>
-      <Button title="Login"/>
+      <Button title="Login" onPress={submitUser}/>
     </View>
   );
 };
