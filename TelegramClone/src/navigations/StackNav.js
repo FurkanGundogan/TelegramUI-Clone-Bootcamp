@@ -11,7 +11,9 @@ const Stack = createStackNavigator();
 const StackNav = () => {
     return (
         <Stack.Navigator>
-          <Stack.Screen name="BottomNav" component={BottomNav} />
+          <Stack.Screen options={{
+            headerShown:false
+          }} name="BottomNav" component={BottomNav} />
           <Stack.Screen name="Chat" component={Chat} />
         </Stack.Navigator>
       )

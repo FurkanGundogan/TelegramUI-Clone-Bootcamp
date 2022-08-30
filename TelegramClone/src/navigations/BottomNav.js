@@ -11,7 +11,9 @@ const BottomNav = () => {
         <Tab.Navigator>
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name="Contact" component={ContactScreen} />
-          <Tab.Screen name="SettingsNav" component={SettingsNav} />
+          <Tab.Screen name="SettingsNav"options={{
+            headerShown:false
+          }} component={SettingsNav} />
         </Tab.Navigator>
       )
 }
