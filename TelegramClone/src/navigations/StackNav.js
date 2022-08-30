@@ -1,10 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet} from 'react-native'
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from '../screens/HomeScreen';
-import Chat from '../screens/Chat';
+
 import BottomNav from './BottomNav';
-import HomeScreen from '../screens/HomeScreen';
+import ChatScreen from '../screens/ChatScreen';
 
 const Stack = createStackNavigator();
 
@@ -14,7 +13,7 @@ const StackNav = () => {
           <Stack.Screen options={{
             headerShown:false
           }} name="BottomNav" component={BottomNav} />
-          <Stack.Screen name="Chat" component={Chat} />
+          <Stack.Screen name="Chat" component={ChatScreen} />
         </Stack.Navigator>
       )
 }
