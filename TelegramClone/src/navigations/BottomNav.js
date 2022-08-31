@@ -12,7 +12,7 @@ const BottomNav = () => {
     return (
         <Tab.Navigator initialRouteName='Messages'>
           
-          <Tab.Screen name="Contact" component={ContactScreen} 
+          <Tab.Screen name="Contacts" component={ContactScreen} 
           options={{
             tabBarIcon:()=> <IconContact
             name="contacts"
@@ -30,7 +30,7 @@ const BottomNav = () => {
           />
           }}
           />
-          <Tab.Screen name="SettingsNav"options={{
+          <Tab.Screen name="Account"options={{
             headerShown:false,
             tabBarIcon:()=> <MaterialCommunityIcons
             name="account-settings-outline"
