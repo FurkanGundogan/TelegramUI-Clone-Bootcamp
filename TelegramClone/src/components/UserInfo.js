@@ -1,7 +1,7 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React, {useContext} from 'react';
 import {UserContext} from '../contexts/userContext';
-
+import IconFeather from 'react-native-vector-icons/Feather';
 const UserInfo = () => {
   const {user} = useContext(UserContext);
   return (
@@ -14,10 +14,21 @@ const UserInfo = () => {
           }}
         />
       </View>
-      <Text style={styles.infoText}>{'@' + user?.username}</Text>
-      <Text style={styles.infoText}>{user?.firstname}</Text>
-      <Text style={styles.infoText}>{user?.lastname}</Text>
-      <Text style={styles.infoText}>{user?.country + user?.phone}</Text>
+      <Text style={{...styles.infoText, ...styles.infoUsername}}>
+        {'@' + user?.username}
+      </Text>
+      <Text style={styles.infoText}>
+        {user?.firstname} {user?.lastname}
+      </Text>
+      <View style={styles.phoneWrapper}>
+        <IconFeather
+          name="phone-call"
+          size={14}
+          color="#900"
+          style={styles.phoneIcon}
+        />
+        <Text style={styles.infoText}>{user?.country + user?.phone}</Text>
+      </View>
     </View>
   );
 };
@@ -46,5 +57,16 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
+  },
+  phoneWrapper: {
+    flexDirection: 'row',
+  },
+  phoneIcon: {
+    marginRight: 8,
+    paddingTop: 2,
+  },
+  infoUsername: {
+    color: '#54b7f0',
+    letterSpacing: 0.4,
   },
 });
