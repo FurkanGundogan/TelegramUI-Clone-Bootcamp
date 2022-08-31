@@ -5,11 +5,12 @@ import {Picker} from '@react-native-picker/picker';
 const LoginForm = () => {
   const {user, setUser} = useContext(UserContext);
   const initialState = {
-    firstname: '',
-    lastname: '',
+    firstname: 'Furkan',
+    lastname: 'Gundogan',
     country: '+90',
-    phone: '',
-    username: '',
+    phone: '5373834345',
+    username: 'furu1414',
+    image:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Jason_Statham_at_Marvel-Rolle.jpg/640px-Jason_Statham_at_Marvel-Rolle.jpg'
   };
   const [userInfo, setuserInfo] = useState(initialState);
   const handleChange = (e, name) => {
@@ -44,6 +45,7 @@ const LoginForm = () => {
           <TextInput
             style={styles.phoneInput}
             placeholder="Phone"
+            value={userInfo?.phone}
             onChangeText={e => handleChange(e, 'phone')}
           />
         </View>
@@ -51,17 +53,20 @@ const LoginForm = () => {
       <TextInput
         style={styles.textInput}
         placeholder="Firstname"
+        value={userInfo?.firstname}
         onChangeText={e => handleChange(e, 'firstname')}
       />
       <TextInput
         style={styles.textInput}
         placeholder="Lastname"
+        value={userInfo?.lastname}
         onChangeText={e => handleChange(e, 'lastname')}
       />
 
       <TextInput
         style={styles.textInput}
         placeholder="Username"
+        value={userInfo?.username}
         onChangeText={e => handleChange(e, 'username')}
       />
       <TouchableOpacity style={styles.submitbutton} onPress={submitUser}>
@@ -86,7 +91,7 @@ const styles = StyleSheet.create({
     fontFamily:"Calibri",
     textShadowRadius:4,
     textShadowColor: "#33382c",
-    marginBottom:16
+    marginBottom:32
   },
   textInput: {
     backgroundColor:"white",
@@ -154,6 +159,6 @@ const styles = StyleSheet.create({
     color:"white",
     fontWeight:"800",
     fontSize: 12,
-    textAlign:"center"
+    textAlign:"center",
   }
 });

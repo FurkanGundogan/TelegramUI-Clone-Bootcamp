@@ -11,9 +11,9 @@ const Stack = createStackNavigator();
 const SettingsNav = () => {
     return (
         <Stack.Navigator>
-          <Stack.Screen name="SettingsScreen" component={SettingsScreen} />
-          <Stack.Screen name="ThemeSettings" component={ThemeSettingsScreen} />
-          <Stack.Screen name="ProfileSettings" component={ProfileSettingsScreen} />
+          <Stack.Screen name="Settings" component={SettingsScreen} />
+          <Stack.Screen name="Theme Settings" component={ThemeSettingsScreen} />
+          <Stack.Screen name="Profile Settings" component={ProfileSettingsScreen} />
           
         </Stack.Navigator>
       )
