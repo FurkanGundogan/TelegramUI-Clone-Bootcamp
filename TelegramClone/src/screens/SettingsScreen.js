@@ -19,7 +19,8 @@ const SettingsScreen = ({navigation}) => {
       <TouchableOpacity
         style={styles.btn}
         onPress={() => navigation.navigate('Profile Settings')}>
-        <Text style={styles.buttonText}>EDIT PROFILE</Text>
+        <Text style={styles.buttonText}>
+          EDIT PROFILE</Text>
       </TouchableOpacity>
       <TouchableOpacity style={{...styles.btn,...styles.btnLogout}} onPress={logout}>
         <Text style={styles.buttonText}>LOGOUT</Text>
