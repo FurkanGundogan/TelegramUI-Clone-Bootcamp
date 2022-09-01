@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import ThemeArea from '../components/ThemeArea'
 
 const ThemeSettingsScreen = () => {
   return (
-    <View>
-      <Text>ThemeSettingsScreen</Text>
-    </View>
+    <ThemeArea/>
   )
 }
 

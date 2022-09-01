@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import SettingsForm from '../components/SettingsForm'
 
 const ProfileSettingsScreen = () => {
   return (
-    <View>
-      <Text>ProfileSettingsScreen</Text>
-    </View>
+      <SettingsForm/>
   )
 }
 
