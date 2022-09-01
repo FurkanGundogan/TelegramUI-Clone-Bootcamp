@@ -14,14 +14,17 @@ import Login from './src/screens/Login';
 import "react-native-gesture-handler"
 import HomeScreen from './src/screens/HomeScreen';
 import { createStackNavigator } from '@react-navigation/stack';
+import ThemeProvider from "./src/providers/ThemeProvider"
 const Stack = createStackNavigator();
 const App = () => {
   return (
+    <ThemeProvider>
     <NavigationContainer>
     <UserProvider>
       <Login/>
     </UserProvider>
     </NavigationContainer>
+    </ThemeProvider>
   );
 };
 

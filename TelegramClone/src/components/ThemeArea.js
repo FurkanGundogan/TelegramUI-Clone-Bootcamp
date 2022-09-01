@@ -1,42 +1,49 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import useTheme from '../hooks/useTheme';
 
 const ThemeArea = () => {
+  const {theme, darkTheme, lightTheme, setTheme} = useTheme();
+  
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>PICK <Text style={{color:"black"}}>THEME</Text></Text>
+    <View style={{...styles.container,backgroundColor:theme?.backgroundColor}}>
+      <Text style={styles.title}>
+        PICK <Text style={theme?.themeText}>THEME</Text>
+      </Text>
       <View style={styles.themeAreaWrapper}>
         <View style={styles.themeWrapper}>
           <View style={styles.theme}>
-            <TouchableOpacity>
-            <View style={styles.imageContainer}>
-              <Image
-                style={styles.image}
-                source={{
-                  uri: "https://www.wallpaperflare.com/static/43/992/1016/sky-sun-sunlight-clouds-wallpaper.jpg",
-                }}
-              />
-            </View>
-            
+            <TouchableOpacity onPress={() => {
+                setTheme(lightTheme)
+                }
+                }>
+              <View style={styles.imageContainer}>
+                <Image
+                  style={styles.image}
+                  source={{
+                    uri: 'https://www.wallpaperflare.com/static/43/992/1016/sky-sun-sunlight-clouds-wallpaper.jpg',
+                  }}
+                />
+              </View>
             </TouchableOpacity>
-            <Text style={{...styles.themeText,...styles.themeDay}}>Day</Text>
+            <Text style={{...styles.themeText, ...styles.themeDay}}>Day</Text>
           </View>
         </View>
         <View style={styles.themeWrapper}>
           <View style={styles.theme}>
-          <TouchableOpacity>
-          <View style={styles.imageContainer}>
-          
-              <Image
-                style={styles.image}
-                source={{
-                  uri: "https://i.pinimg.com/originals/49/66/55/4966550fa2ff97f4f432700b20088f83.png",
-                }}
-              />
-            </View>
-           
+            <TouchableOpacity onPress={() => {setTheme(darkTheme)
+            
+            }}>
+              <View style={styles.imageContainer}>
+                <Image
+                  style={styles.image}
+                  source={{
+                    uri: 'https://i.pinimg.com/originals/49/66/55/4966550fa2ff97f4f432700b20088f83.png',
+                  }}
+                />
+              </View>
             </TouchableOpacity>
-            <Text style={{...styles.themeText,...styles.themeDark}}>Dark</Text>
+            <Text style={{...styles.themeText, ...theme?.themetextDark}}>Dark</Text>
           </View>
         </View>
       </View>
@@ -76,31 +83,26 @@ const styles = StyleSheet.create({
   imageContainer: {
     overflow: 'hidden',
     borderRadius: 20,
-    borderColor:"#bcc9cf",
-    borderWidth:1,
-    
-
+    borderColor: '#bcc9cf',
+    borderWidth: 1,
   },
   image: {
     width: '100%',
     height: '100%',
   },
-  themeText:{
-    marginTop:8,
-    textAlign:"center",
-    fontWeight:"800",
-    fontSize:18,
-    letterSpacing:0.4
-    
+  themeText: {
+    marginTop: 8,
+    textAlign: 'center',
+    fontWeight: '800',
+    fontSize: 18,
+    letterSpacing: 0.4,
   },
-  themeDay:{
-    color:"#65c6f0",
-    fontWeight:"900",
-    textShadowRadius:2,
-    textShadowColor:"#c1c3de"
-  },themeDark:{
-    color:"black",
-    textShadowRadius:2,
-    fontWeight:"800",
-  }
+  themeDay: {
+    color: '#65c6f0',
+    fontWeight: '900',
+    textShadowRadius: 2,
+    textShadowColor: '#c1c3de',
+  },
+ 
+ 
 });

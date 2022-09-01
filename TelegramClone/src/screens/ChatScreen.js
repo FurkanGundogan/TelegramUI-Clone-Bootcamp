@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import useTheme from '../hooks/useTheme'
 
 const ChatScreen = () => {
+  const {theme}=useTheme()
   return (
-    <View>
+    <View style={{...styles.container,backgroundColor:theme?.backgroundColor}}>
       <Text>ChatScreen</Text>
     </View>
   )
@@ -11,4 +13,9 @@ const ChatScreen = () => {
 
 export default ChatScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{
+    backgroundColor:"white",
+        flex:1
+  }
+})

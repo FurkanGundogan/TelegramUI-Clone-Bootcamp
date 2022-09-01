@@ -1,15 +1,17 @@
-import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useContext} from 'react';
 import {UserContext} from '../contexts/userContext';
 import UserInfo from '../components/UserInfo';
+import useTheme from '../hooks/useTheme';
 
 const SettingsScreen = ({navigation}) => {
+  const {theme} = useTheme();
   const {setUser} = useContext(UserContext);
   const logout = () => {
     setUser(null);
   };
   return (
-    <View style={styles.container}>
+    <View style={{...styles.container,backgroundColor:theme?.backgroundColor}}>
       <UserInfo />
       <TouchableOpacity
         style={styles.btn}

@@ -3,8 +3,10 @@ import React, { useContext, useState } from 'react'
 import { UserContext } from '../contexts/userContext';
 import { TextInput } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import useTheme from '../hooks/useTheme';
 
 const SettingsForm = () => {
+  const {theme} = useTheme();
     const navigation=useNavigation()
     const {user, setUser} = useContext(UserContext);
  
@@ -21,7 +23,7 @@ const SettingsForm = () => {
     navigation.navigate('Settings')
   };
   return (
-    <View style={styles.container}>
+    <View style={{...styles.container,backgroundColor:theme?.backgroundColor}}>
       <Text style={styles.title}>ACCOUNT</Text>
       <TextInput
         style={styles.textInput}

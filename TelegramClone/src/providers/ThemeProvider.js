@@ -22,6 +22,8 @@ const ThemeProvider = ({children}) => {
       value={{
         theme,
         setTheme,
+        darkTheme,
+        lightTheme,
         toggleTheme: handleToggleTheme,
       }}>
       {children}

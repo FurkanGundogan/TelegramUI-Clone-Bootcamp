@@ -2,7 +2,9 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import React, {useContext} from 'react';
 import {UserContext} from '../contexts/userContext';
 import IconFeather from 'react-native-vector-icons/Feather';
+import useTheme from '../hooks/useTheme';
 const UserInfo = () => {
+  const {theme} = useTheme();
   const {user} = useContext(UserContext);
   return (
     <View style={styles.container}>
@@ -17,17 +19,17 @@ const UserInfo = () => {
       <Text style={{...styles.infoText, ...styles.infoUsername}}>
         {'@' + user?.username}
       </Text>
-      <Text style={styles.infoText}>
+      <Text style={{...styles.infoText,...theme?.userInfoText}}>
         {user?.firstname} {user?.lastname}
       </Text>
       <View style={styles.phoneWrapper}>
         <IconFeather
           name="phone-call"
           size={14}
-          color="#900"
+          color={theme?.phoneIconColor}
           style={styles.phoneIcon}
         />
-        <Text style={styles.infoText}>{user?.country + user?.phone}</Text>
+        <Text style={{...styles.infoText,...theme?.userInfoText}}>{user?.country + user?.phone}</Text>
       </View>
     </View>
   );

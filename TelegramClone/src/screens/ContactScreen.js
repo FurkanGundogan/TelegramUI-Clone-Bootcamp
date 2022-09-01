@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import useTheme from '../hooks/useTheme'
 
 const ContactScreen = () => {
+  const {theme}=useTheme()
   return (
-    <View>
+    <View style={{...styles.container,backgroundColor:theme?.backgroundColor}}>
       <Text>ContactScreen</Text>
     </View>
   )
@@ -11,4 +13,9 @@ const ContactScreen = () => {
 
 export default ContactScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{
+    backgroundColor:"white",
+        flex:1
+  }
+})
