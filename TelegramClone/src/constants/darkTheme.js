@@ -42,5 +42,9 @@ export default {
       paddingLeft: 16,
       paddingBottom: 16,
       alignItems: 'center',
+    },
+    chatHeaderContainer:{
+      backgroundColor: 'black',
+      width: '100%',
     }
   };

@@ -4,10 +4,12 @@ import IconEntypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useNavigation, useRoute } from '@react-navigation/native'
+import useTheme from '../hooks/useTheme';
 const Header = ({contact}) => {
+    const {theme} = useTheme()
     const navigation=useNavigation()
   return (
-    <View style={styles.container}>
+    <View style={theme?.chatHeaderContainer}>
       <View style={styles.topWrapper}>
         <View style={styles.titleWrapper}>
           <TouchableOpacity onPress={()=>navigation.goBack()}>
@@ -31,12 +33,7 @@ const Header = ({contact}) => {
           </Text>
         </View>
         <View style={styles.iconWrapper}>
-          <FontAwesome
-            style={styles.videoIcon}
-            name="video-camera"
-            size={20}
-            color="white"
-          />
+          
           <Ionicons
             style={styles.callIcon}
             name="call"
@@ -54,7 +51,7 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#07b93c',
+    backgroundColor: '#27a2e1',
     width: '100%',
   },
   topWrapper: {

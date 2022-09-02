@@ -13,7 +13,9 @@ const StackNav = () => {
           <Stack.Screen options={{
             headerShown:false
           }} name="BottomNav" component={BottomNav} />
-          <Stack.Screen name="Chat" component={ChatScreen} />
+          <Stack.Screen name="Chat" component={ChatScreen} 
+          options={{headerShown:false}}
+          />
         </Stack.Navigator>
       )
 }
