@@ -1,9 +1,16 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native';
-import React from 'react';
+import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import React, { useContext, useState } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
-
-const MessageInputArea = () => {
+import { ChatListContext } from '../contexts/chatContext';
+import { UserContext } from '../contexts/userContext';
+const MessageInputArea = ({contact}) => {
+    const {user} = useContext(UserContext)
+   const {setChat} = useContext(ChatListContext)
+   const [input, setinput] = useState("")
+   const handleSendMessage = () =>{
+    setChat(user?.id,contact?.id,input)
+   }
   return (
     <View style={styles.container}>
       <View style={styles.inputBox}>
@@ -13,11 +20,11 @@ const MessageInputArea = () => {
           size={24}
           color="black"
         />
-        <TextInput style={styles.input}></TextInput>
+        <TextInput style={styles.input} value={input} onChangeText={(text)=>setinput(text)} placeholder="Message..."></TextInput>
       </View>
-      <View style={styles.iconWrapper}>
+      <TouchableOpacity style={styles.iconWrapper} onPress={handleSendMessage}>
         <Ionicons style={styles.backIcon} name="send" size={24} color="black" />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -27,7 +34,7 @@ export default MessageInputArea;
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    backgroundColor: '#c1c1c1',
+    backgroundColor: 'white',
     flexDirection: 'row',
     padding: 4,
     position: 'absolute',
@@ -38,9 +45,6 @@ const styles = StyleSheet.create({
     width: '85%',
     alignItems: 'center',
     flexDirection: 'row',
-    borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 32,
     backgroundColor: 'white',
   },
   iconWrapper: {

@@ -42,6 +42,6 @@ export default {
     height: '70%',
     paddingLeft: 8,
     paddingRight: 8,
-    backgroundColor: '#c1c1c1',
+    backgroundColor: '#9bc08d',
   },
 };

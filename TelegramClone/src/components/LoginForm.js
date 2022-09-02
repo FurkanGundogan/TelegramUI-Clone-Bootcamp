@@ -5,6 +5,7 @@ import {Picker} from '@react-native-picker/picker';
 const LoginForm = () => {
   const {user, setUser} = useContext(UserContext);
   const initialState = {
+    id:"0",
     firstname: 'Furkan',
     lastname: 'Gundogan',
     country: '+90',
