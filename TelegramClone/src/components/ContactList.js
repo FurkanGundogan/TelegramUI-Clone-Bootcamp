@@ -4,12 +4,10 @@ import {contactDataList} from '../assets/MockContact';
 import ContactListItem from './ContactListItem';
 const ContactList = () => {
   return (
-    <View>
       <FlatList
         data={contactDataList}
         renderItem={({ item, index })=> <ContactListItem key={index} contact={item} />}
       />
-    </View>
   );
 };
 

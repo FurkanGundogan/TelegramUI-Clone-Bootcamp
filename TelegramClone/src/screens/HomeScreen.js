@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import ChatScreen from './ChatScreen';
 import { UserContext } from '../contexts/userContext';
 import useTheme from '../hooks/useTheme';
+import ChatList from '../components/ChatList';
 
 const HomeScreen = ({navigation}) => {
   const {theme}=useTheme()
@@ -10,33 +11,8 @@ const HomeScreen = ({navigation}) => {
   console.log('burada',user?.firstname);
   return (
     <View style={{...styles.container,backgroundColor:theme?.backgroundColor}}>
-      <Text onPress={()=>navigation.navigate('Chat')}>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
-      <Text>Home</Text>
+      <ChatList/>
+      <Text>asdas</Text>
     </View>
   )
 }
@@ -46,6 +22,6 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     backgroundColor:"white",
-    flex:1
+  
   },
 });

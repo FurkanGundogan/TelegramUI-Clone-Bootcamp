@@ -1,22 +1,40 @@
 import React, {useState} from 'react';
-import { ChatListContext } from '../contexts/chatContext';
+import {ChatListContext} from '../contexts/chatContext';
 
 const ChatListProvider = ({children}) => {
   const [chatState, setChatState] = useState([]);
-  const getChat = (sender,receiver) =>{
-    if(chatState[sender+receiver]) return chatState[sender+receiver]
-    return []
-  }
-  const setChat = (sender,receiver,msg) =>{
-    setChatState({...chatState,[sender+receiver]:[...getChat(sender,receiver),{text:msg,datetime:new Date()}]})
-  }
+  const getOtherChats = (sender, receiver) => {
+    let chatlist = chatState.filter(chat => chat.id !== sender + receiver);
+    if (chatlist !== undefined) return chatlist;
+    return [];
+  };
+  const getChat = (sender, receiver) => {
+    let chat = chatState.filter(chat => chat.id === sender + receiver);
+    let msglist = chat[0]?.messages;
+    if (msglist !== undefined) return msglist;
+
+    return [];
+  };
+  const setChat = (sender, receiver, msg) => {
+    let chats = getOtherChats(sender, receiver);
+    setChatState([
+      ...chats,
+      {
+        id: sender + receiver,
+        messages: [
+          ...getChat(sender, receiver),
+          {text: msg, timestamp: new Date()},
+        ],
+      },
+    ]);
+  };
   return (
     <ChatListContext.Provider
       value={{
         chatList: chatState,
         setChatList: setChatState,
-        getChat:getChat,
-        setChat:setChat
+        getChat: getChat,
+        setChat: setChat,
       }}>
       {children}
     </ChatListContext.Provider>

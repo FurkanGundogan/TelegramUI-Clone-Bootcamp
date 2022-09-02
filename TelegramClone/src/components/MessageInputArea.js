@@ -10,6 +10,7 @@ const MessageInputArea = ({contact}) => {
    const [input, setinput] = useState("")
    const handleSendMessage = () =>{
     setChat(user?.id,contact?.id,input)
+    setinput("")
    }
   return (
     <View style={styles.container}>
