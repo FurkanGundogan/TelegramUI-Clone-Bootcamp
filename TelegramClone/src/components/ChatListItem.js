@@ -33,7 +33,7 @@ const ChatListItem = ({chat}) => {
             <Text style={theme?.chatListTitleTime}>
               {messages.length === 1
                 ? new Date(messages[0].timestamp).getHours()+":"+new Date(messages[0].timestamp).getMinutes()
-                : new Date(messages[messages.length - 1].timestamp).getHours()+":"+new Date(messages[messages.length - 1].timestamp).getMinutes()}
+                : new Date(messages[messages.length - 1].timestamp).getHours()+"0:"+new Date(messages[messages.length - 1].timestamp).getMinutes()}
             </Text>
           </View>
           <Text style={theme?.username}>
