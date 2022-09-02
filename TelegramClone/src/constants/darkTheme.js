@@ -23,6 +23,24 @@ export default {
       color:"white"
     },userInfoText:{
       color:"white"
-    },phoneIconColor:"white"
-    
+    },phoneIconColor:"white",
+    titleText: {
+      fontWeight: '800',
+      color: 'white',
+      fontSize: 16,
+      flex: 1,
+    },
+    username: {
+      fontSize: 14,
+      color:"orange"
+    },
+    contactListItemContainer:{
+      borderBottomWidth: 1,
+      borderBottomColor: 'white',
+      flexDirection: 'row',
+      paddingTop: 16,
+      paddingLeft: 16,
+      paddingBottom: 16,
+      alignItems: 'center',
+    }
   };

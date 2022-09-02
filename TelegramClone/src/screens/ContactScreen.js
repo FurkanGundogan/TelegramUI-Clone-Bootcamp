@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import useTheme from '../hooks/useTheme'
+import ContactList from '../components/ContactList'
 
 const ContactScreen = () => {
   const {theme}=useTheme()
   return (
     <View style={{...styles.container,backgroundColor:theme?.backgroundColor}}>
-      <Text>ContactScreen</Text>
+      <ContactList/>
     </View>
   )
 }

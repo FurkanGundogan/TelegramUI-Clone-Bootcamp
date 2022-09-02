@@ -6,24 +6,27 @@
  * @flow strict-local
  */
 
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import UserProvider from './src/providers/UserProvider';
 import Login from './src/screens/Login';
-import "react-native-gesture-handler"
+import 'react-native-gesture-handler';
 import HomeScreen from './src/screens/HomeScreen';
-import { createStackNavigator } from '@react-navigation/stack';
-import ThemeProvider from "./src/providers/ThemeProvider"
+import {createStackNavigator} from '@react-navigation/stack';
+import ThemeProvider from './src/providers/ThemeProvider';
+import ChatListProvider from './src/providers/ChatListProvider';
 const Stack = createStackNavigator();
 const App = () => {
   return (
     <ThemeProvider>
-    <NavigationContainer>
-    <UserProvider>
-      <Login/>
-    </UserProvider>
-    </NavigationContainer>
+      <NavigationContainer>
+        <ChatListProvider>
+          <UserProvider>
+            <Login />
+          </UserProvider>
+        </ChatListProvider>
+      </NavigationContainer>
     </ThemeProvider>
   );
 };
