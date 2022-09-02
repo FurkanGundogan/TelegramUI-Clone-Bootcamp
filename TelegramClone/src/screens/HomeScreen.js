@@ -12,7 +12,6 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={{...styles.container,backgroundColor:theme?.backgroundColor}}>
       <ChatList/>
-      <Text>asdas</Text>
     </View>
   )
 }
@@ -22,6 +21,6 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     backgroundColor:"white",
-  
+    flex:1
   },
 });

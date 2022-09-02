@@ -7,11 +7,10 @@ const ChatList = () => {
     const {chatList} = useContext(ChatListContext)
     
   return (
-    <Text>abc</Text>
-    /*<FlatList
-    data={Object.keys(chatList)}
-    renderItem={({ item, index })=> <ChatListItem key={index} chatId={item} />}
-  />*/
+    <FlatList
+    data={chatList}
+    renderItem={({ item, index })=> <ChatListItem key={index} chat={item} />}
+  />
   )
 }
 

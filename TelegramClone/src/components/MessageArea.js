@@ -13,8 +13,8 @@ const MessageArea = ({messages}) => {
         <View key={i} style={styles.dialog}>
           <Text style={styles.text}>{message?.text}</Text>
           <Text style={styles.time}>
-            {new Date(message?.datetime).getHours()}:
-            {new Date(message?.datetime).getMinutes()}
+            {new Date(message?.timestamp).getHours()}:
+            {new Date(message?.timestamp).getMinutes()}
           </Text>
         </View>
       ))}
