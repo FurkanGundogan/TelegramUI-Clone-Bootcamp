@@ -1,12 +1,17 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import useTheme from '../hooks/useTheme';
+import { useNavigation } from '@react-navigation/native';
 
 const ContactListItem = ({contact}) => {
   const {theme} = useTheme();
   const {id, firstName, lastName, profileImgUrl, username} = contact;
+  const navigation=useNavigation()
+  const handleNavigateToChat = () =>{
+        navigation.navigate('Chat',{contact})
+  }
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={handleNavigateToChat}>
       <View style={theme?.contactListItemContainer}>
         <View style={styles.imageContainer}>
           <Image
