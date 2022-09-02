@@ -52,5 +52,9 @@ export default {
       paddingRight: 8,
       backgroundColor: '#14202b',
     
+    },chatListTitleTime: {
+      flex: 1,
+      right: -48,
+      color:"white",
     },
   };

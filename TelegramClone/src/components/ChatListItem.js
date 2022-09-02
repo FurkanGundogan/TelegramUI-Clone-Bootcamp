@@ -1,18 +1,19 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useContext } from 'react'
-import { UserContext } from '../contexts/userContext'
-import { contactDataList } from '../assets/MockContact'
-import { useNavigation } from '@react-navigation/native'
-import useTheme from '../hooks/useTheme'
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, {useContext} from 'react';
+import {UserContext} from '../contexts/userContext';
+import {contactDataList} from '../assets/MockContact';
+import {useNavigation} from '@react-navigation/native';
+import useTheme from '../hooks/useTheme';
 const ChatListItem = ({chat}) => {
   const {theme} = useTheme();
-  const {id} = chat
-  const {user} = useContext(UserContext)
-  const contact = contactDataList.filter(c=>id==user?.id+c?.id)[0]
-  const navigation=useNavigation()
-  const handleNavigateToChat = () =>{
-        navigation.navigate('Chat',{contact})
-  }
+  const {id, messages} = chat;
+  console.log('chat:', chat);
+  const {user} = useContext(UserContext);
+  const contact = contactDataList.filter(c => id == user?.id + c?.id)[0];
+  const navigation = useNavigation();
+  const handleNavigateToChat = () => {
+    navigation.navigate('Chat', {contact});
+  };
   return (
     <TouchableOpacity onPress={handleNavigateToChat}>
       <View style={theme?.contactListItemContainer}>
@@ -29,15 +30,24 @@ const ChatListItem = ({chat}) => {
             <Text style={theme?.titleText}>
               {contact?.firstName} {contact?.lastName}
             </Text>
+            <Text style={theme?.chatListTitleTime}>
+              {messages.length === 1
+                ? new Date(messages[0].timestamp).getHours()+":"+new Date(messages[0].timestamp).getMinutes()
+                : new Date(messages[messages.length - 1].timestamp).getHours()+":"+new Date(messages[messages.length - 1].timestamp).getMinutes()}
+            </Text>
           </View>
-          <Text style={theme?.username}>@{contact?.username}</Text>
+          <Text style={theme?.username}>
+            {messages.length === 1
+              ? messages[0].text
+              : messages[messages.length - 1].text}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default ChatListItem
+export default ChatListItem;
 
 const styles = StyleSheet.create({
   contactListItemContainer: {
@@ -63,9 +73,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     flex: 1,
   },
-  titleTime: {
+  chatListTitleTime: {
     flex: 1,
     right: -48,
+    color:"white",
   },
   imageContainer: {
     width: 50,
@@ -79,4 +90,4 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-})
+});
