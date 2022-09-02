@@ -1,16 +1,18 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import useTheme from '../hooks/useTheme';
 
 const MessageArea = ({messages}) => {
+    const {theme}=useTheme()
   console.log(messages);
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.dialogWrap}>
       {messages?.map((message, i) => (
         <View key={i} style={styles.dialog}>
           <Text style={styles.text}>{message?.text}</Text>
           <Text style={styles.time}>
             {new Date(message?.datetime).getHours()}:
-            {new Date(message?.datetime).getMinutes()}
+            {"0"+new Date(message?.datetime).getMinutes()}
           </Text>
         </View>
       ))}
@@ -27,8 +29,12 @@ const styles = StyleSheet.create({
     paddingRight: 8,
     backgroundColor: '#c1c1c1',
   },
+  dialogWrap:{
+    alignItems:"flex-end"
+  },
   dialog: {
-    paddingLeft: 16,
+    minWidth:100,
+    padding:8,
     maxWidth: '50%',
     backgroundColor: 'white',
     borderColor: '#fafafa',
@@ -37,6 +43,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   text: {
+    left:-2,
     padding: 6,
     fontWeight: '400',
     color: 'black',
@@ -44,7 +51,7 @@ const styles = StyleSheet.create({
   },
   time: {
     position:"absolute",
-    right: 6,
+    right: 16,
     bottom: 4,
     fontSize: 12,
   },

@@ -46,5 +46,11 @@ export default {
     chatHeaderContainer:{
       backgroundColor: 'black',
       width: '100%',
-    }
+    },msgAreaContainer: {
+      height: '70%',
+      paddingLeft: 8,
+      paddingRight: 8,
+      backgroundColor: '#14202b',
+    
+    },
   };
